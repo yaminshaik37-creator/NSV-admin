@@ -1,16 +1,16 @@
 "use client";
 
 import DeviceCard from "./ProcedureOverTime";
-import ProceduresOverTime from "./NationalCoverage";
+// import ProceduresOverTime from "./NationalCoverage";
 import VolumeByState from "./ProcedureVolumeByState";
 
-/* ---------------- LEFT: Procedures Over Time (AREA CHART) ---------------- */
 
+import dynamic from "next/dynamic";
 
-/* ---------------- RIGHT TOP: Device Card with Top Tabs ---------------- */
-
-
-/* ---------------- RIGHT BOTTOM: Volume by State ---------------- */
+const ProceduresOverTime = dynamic(
+    () => import("./NationalCoverage"),
+    { ssr: false }
+);
 
 
 /* ---------------- MAIN DASHBOARD ---------------- */

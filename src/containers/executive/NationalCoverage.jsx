@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { stateAliasMap, stateCoordinates } from "@/config/constants";
 
 /* ✅ IN VIEW HOOK (for animation trigger) */
 function useInView() {
@@ -26,25 +27,6 @@ function useInView() {
     return [ref, isInView];
 }
 
-/* ✅ STATES */
-const stateCoordinates = {
-    gujarat: [22.2587, 71.1924],
-    maharashtra: [19.7515, 75.7139],
-    delhi: [28.7041, 77.1025],
-    rajasthan: [27.0238, 74.2179],
-    "uttar pradesh": [26.8467, 80.9462],
-    assam: [26.2006, 92.9376],
-    telangana: [18.1124, 79.0193],
-    uttarakhand: [30.0668, 79.0193],
-};
-
-/* ✅ DIRTY DATA FIX */
-const stateAliasMap = {
-    gujrat: "gujarat",
-    uttrakhand: "uttarakhand",
-    hyderabad: "telangana",
-};
-
 /* ✅ NORMALIZE */
 const getValidState = (state) => {
     if (!state) return null;
@@ -58,7 +40,6 @@ const getValidState = (state) => {
     return stateCoordinates[normalized] ? normalized : null;
 };
 
-/* ✅ IMPROVED MARKER */
 const createBubbleIcon = (count, state) =>
     L.divIcon({
         html: `
@@ -111,22 +92,9 @@ const createBubbleIcon = (count, state) =>
         iconAnchor: [20, 20],
     });
 
-export default function NationalCoverageMap() {
-    const [coverage, setCoverage] = useState([]);
+export default function NationalCoverageMap({ nationalCoverage }) {
     const [country, setCountry] = useState("india");
-
     const [ref, isInView] = useInView();
-
-    /* ✅ MOCK DATA (replace with API) */
-    useEffect(() => {
-        setCoverage([
-            { state: "Gujarat", clinics: 60, procedures: 200 },
-            { state: "Maharashtra", clinics: 7, procedures: 80 },
-            { state: "Delhi", clinics: 4, procedures: 50 },
-            { state: "Rajasthan", clinics: 3, procedures: 30 },
-            { state: "Uttar Pradesh", clinics: 14, procedures: 120 },
-        ]);
-    }, []);
 
     return (
         <div
@@ -158,7 +126,7 @@ export default function NationalCoverageMap() {
                 <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
 
                 {isInView &&
-                    coverage.map((item, i) => {
+                    nationalCoverage.map((item, i) => {
                         const validState = getValidState(item.state);
                         if (!validState) return null;
 

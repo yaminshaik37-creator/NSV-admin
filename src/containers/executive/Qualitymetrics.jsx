@@ -1,38 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import ApiCall from "@/Services/api";
-import { API_ENDPOINTS } from "@/config/api-endpoints";
 import CommonBarChart from "@/components/charts/CommonBarChart";
 import DonutChart from "@/components/charts/DonutChart";
 import ChartLegend from "@/components/charts/ChartLegend";
+import { convert2Decimal } from "@/utils/helper";
 
-export default function QualityMetrics() {
+export default function QualityMetrics({ qualityMetrics_ngyn, qualityMetrics_ncardio, qualityMetrics_nora }) {
 
-    const [data, setData] = useState(null);
-
-    // const fetchMetrics = async () => {
-    //     try {
-
-    //         const res = await ApiCall({
-    //             url: API_ENDPOINTS.QUALITY_METRICS,
-    //             method: "GET"
-    //         });
-
-    //         if (res?.success) {
-    //             setData(res.data);
-    //         }
-
-    //     } catch (err) {
-    //         console.error("Metrics API error", err);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     fetchMetrics();
-    // }, []);
-
-    // if (!data) return null;
     const DATA = [
         { range: "0-2", value: 150 },
         { range: "3-4", value: 550 },
@@ -55,13 +29,13 @@ export default function QualityMetrics() {
 
                     <h3 className="font-semibold mb-4 text-gray-700">• nGyn Metrics</h3>
 
-                    <Metric label="Average Image Quality score" value={'8.7/10'} color="text-green-600" />
+                    <Metric labelColor="text-red-600" label="Average Image Quality score" value={'8.7/10'} color="text-green-600" />
 
-                    <Metric label="Procedure Completion" value={'94.2%'} color="text-green-600" />
+                    <Metric label="Procedure Completion" value={`${convert2Decimal(qualityMetrics_ngyn?.procedure_completion_res?.completion_rate)}%`} color="text-green-600" />
 
-                    <Metric label="Acetic Acid Quality" value={`4.8 avg`} />
+                    <Metric label="Swede Score Distribution" value={`${convert2Decimal(qualityMetrics_ngyn?.swide_score_distribution_res?.round)}  avg`} />
 
-                    <Metric label="High-Grade Detection" value={`18.3%`} />
+                    <Metric labelColor="text-red-600" label="High-Grade Detection" value={`${convert2Decimal(qualityMetrics_ngyn?.hide_grade_detection_res?.completion_rate)}%`} />
 
                     <div className="h-[200px] my-5">
                         <CommonBarChart data={DATA} layout="vertical" dataKey="value" labelKey="range" />
@@ -71,13 +45,13 @@ export default function QualityMetrics() {
                 {/* nOra */}
                 <div className="bg-white rounded-2xl shadow p-6">
 
-                    <h3 className="font-semibold mb-4 text-gray-700">
+                    <h3 className="font-semibold mb-4 text-red-600">
                         • nOra Quality Metrics
                     </h3>
 
                     <Metric label="Complete Capture" value={`91.5%`} color="text-green-600" />
 
-                    <Metric label="High-Risk Detection" value={`96.8%`} />
+                    <Metric label="High-Risk Detection" value={`96.8%`} color="text-red-600" />
 
                     <div className="h-[200px] my-5">
                         <DonutChart data={[
@@ -100,7 +74,7 @@ export default function QualityMetrics() {
                 {/* nCardio */}
                 <div className="bg-white rounded-2xl shadow p-6">
 
-                    <h3 className="font-semibold mb-4 text-gray-700">   • nCardio Quality Metrics  </h3>
+                    <h3 className="font-semibold mb-4 text-red-600">   • nCardio Quality Metrics  </h3>
 
                     <Metric label="Average Image Quality score" value={'8.7/10'} color="text-green-600" />
 
@@ -131,10 +105,10 @@ export default function QualityMetrics() {
     );
 }
 
-function Metric({ label, value, color }) {
+function Metric({ label, value, color, labelColor }) {
     return (
-        <div className="flex justify-between text-sm mb-3">
-            <span className="text-gray-600">{label}</span>
+        <div className={`flex justify-between text-sm mb-3`}>
+            <span className={` ${labelColor || "text-gray-600"}`}>{label}</span>
             <span className={`font-semibold ${color || "text-gray-700"}`}>
                 {value}
             </span>

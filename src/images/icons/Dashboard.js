@@ -1,0 +1,16 @@
+
+const Dashboard = () => {
+    return (
+        <>
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="8" height="8" stroke="#000" fill="none" rx="1"></rect>
+                <rect x="13" y="3" width="8" height="8" stroke="#000" fill="none" rx="1"></rect>
+                <rect x="3" y="13" width="8" height="8" stroke="#000" fill="none" rx="1"></rect>
+                <rect x="13" y="13" width="8" height="8" stroke="#000" fill="none" rx="1"></rect>
+            </svg>
+
+        </>
+    )
+}
+
+export default Dashboard

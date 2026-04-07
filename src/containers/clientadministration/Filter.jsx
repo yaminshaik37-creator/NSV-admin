@@ -2,20 +2,13 @@
 
 import { useState, useEffect } from "react";
 
-export default function HeaderFilter({ onFilterChange }) {
+export default function HeaderFilter({ onFilterChange, clinics }) {
 
     const [clinic_id, setClinicId] = useState("");
     const [range, setRange] = useState("30days");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
 
-    const clinics = [
-        { id: "", name: "All Clinics" },
-        { id: "1", name: "Ahmedabad Clinic" },
-        { id: "2", name: "Surat Clinic" },
-        { id: "3", name: "Rajkot Clinic" },
-        { id: "4", name: "Vadodara Clinic" }
-    ];
 
     useEffect(() => {
 

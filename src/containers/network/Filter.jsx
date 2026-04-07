@@ -1,6 +1,6 @@
 "use client";
 
-export default function DashboardFilters({
+export default function DashboardFilters({ institute,
     iid,
     setIid,
     clinicId,
@@ -30,13 +30,15 @@ export default function DashboardFilters({
                     className="border rounded-md px-3 py-2 text-sm"
                 >
                     <option value="">All Institutions</option>
-                    <option value="1">Institution 1</option>
-                    <option value="2">Institution 2</option>
-                    <option value="3">Institution 3</option>
+                    {institute?.map((item, index) => (
+                        <option key={index} value={item.id}>
+                            {item.name}
+                        </option>
+                    ))}
                 </select>
 
                 {/* Clinic Filter */}
-                <select
+                {/* <select
                     value={clinicId}
                     onChange={(e) => setClinicId(e.target.value)}
                     className="border rounded-md px-3 py-2 text-sm"
@@ -45,7 +47,7 @@ export default function DashboardFilters({
                     <option value="1">Clinic 1</option>
                     <option value="2">Clinic 2</option>
                     <option value="3">Clinic 3</option>
-                </select>
+                </select> */}
 
             </div>
 
@@ -59,8 +61,8 @@ export default function DashboardFilters({
                     <button
                         onClick={() => setRange("24h")}
                         className={`px-4 py-2 text-sm ${range === "24h"
-                                ? "bg-blue-600 text-white"
-                                : "bg-white text-gray-600"
+                            ? "bg-blue-600 text-white"
+                            : "bg-white text-gray-600"
                             }`}
                     >
                         24 hours
@@ -69,8 +71,8 @@ export default function DashboardFilters({
                     <button
                         onClick={() => setRange("7d")}
                         className={`px-4 py-2 text-sm border-l ${range === "7d"
-                                ? "bg-blue-600 text-white"
-                                : "bg-white text-gray-600"
+                            ? "bg-blue-600 text-white"
+                            : "bg-white text-gray-600"
                             }`}
                     >
                         7 days
@@ -79,8 +81,8 @@ export default function DashboardFilters({
                     <button
                         onClick={() => setRange("30d")}
                         className={`px-4 py-2 text-sm border-l ${range === "30d"
-                                ? "bg-blue-600 text-white"
-                                : "bg-white text-gray-600"
+                            ? "bg-blue-600 text-white"
+                            : "bg-white text-gray-600"
                             }`}
                     >
                         30 days

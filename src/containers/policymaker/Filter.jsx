@@ -1,6 +1,6 @@
 "use client";
 
-export default function DashboardHeader({
+export default function DashboardHeader({ clinics,
     clinic_id,
     setClinicId,
     range,
@@ -11,15 +11,6 @@ export default function DashboardHeader({
     setEndDate
 }) {
 
-    const facilities = [
-        { id: "all", name: "All Facilities" },
-        { id: 1, name: "Apollo Ahmedabad" },
-        { id: 2, name: "Apollo Surat" },
-        { id: 3, name: "Apollo Mumbai" },
-        { id: 4, name: "Apollo Mumbai" },
-        { id: 5, name: "Apollo Mumbai" },
-        { id: 6, name: "Apollo Mumbai" },
-    ];
 
     return (
         <div className="w-full flex justify-between items-center">
@@ -38,7 +29,7 @@ export default function DashboardHeader({
                     }
                     className="border border-gray-300 rounded-md px-3 py-1.5 text-sm bg-white focus:outline-none"
                 >
-                    {facilities.map((f) => (
+                    {clinics.map((f) => (
                         <option key={f.id} value={f.id}>
                             {f.name}
                         </option>

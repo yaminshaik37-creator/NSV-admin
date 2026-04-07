@@ -10,6 +10,16 @@ const POLICY_MAKER_API_URL = process.env.POLICY_MAKER_API_URL;
 
 
 export const API_ENDPOINTS = {
+    EXE_DASHBOARD_ALERTS: UPDATES_API_URL + 'dashboard-alerts',
+    UPDATES_KPI: UPDATES_API_URL + 'kpi',
+    EXE_NATIONAL_COVERAGE: UPDATES_API_URL + 'national-coverage',
+    PROCEDURES_OVER_TIME: UPDATES_API_URL + 'procedures-over-time',
+    EXE_PROCEDURES_VOLUME_BY_STATE: UPDATES_API_URL + 'procedures-volume-by-state',
+    EXE_QUALITY_METRICS_NGYN: UPDATES_API_URL + 'quality-metrics/ngyn',
+    EXE_QUALITY_METRICS_NCARDIO: UPDATES_API_URL + 'quality-metrics/ncardio',
+    EXE_QUALITY_METRICS_NORA: UPDATES_API_URL + 'quality-metrics/nora',
+
+
     EXECUTIVE_UPDATES: UPDATES_API_URL + 'nsv-executive-executive-kpis',
     EXECUTIVE_PROCEDURES_OVER_TIME: UPDATES_API_URL + 'nsv-executive-procedure-overtime',
     DASHBOARD_ALERTS: UPDATES_API_URL + 'nsv-executive-dashboard-alerts',
@@ -19,6 +29,8 @@ export const API_ENDPOINTS = {
 
     // NSV NETWORK DIRECTOR
 
+    INSTITUTE_MASTER: NETWORK_DIRECTOR_API_URL + 'institute-master',
+    CLINIC_MASTER: NETWORK_DIRECTOR_API_URL + 'clinic-master',
     UNDERPERFORMING_CENTER: NETWORK_DIRECTOR_API_URL + 'underperforming-center',
     NETWORK_KPIS: NETWORK_DIRECTOR_API_URL + 'network-kpis',
     CENTER_PERFORMANCE_OVERVIEW: NETWORK_DIRECTOR_API_URL + 'center-performance-overview',
@@ -46,6 +58,7 @@ export const API_ENDPOINTS = {
     NATIONAL_COVERAGE: POLICY_MAKER_API_URL + 'national-coverage',
     UPDATES_KPIS: POLICY_MAKER_API_URL + 'national-updates-kpis',
     CLINICS_PERFORMANCE_DETAILS: POLICY_MAKER_API_URL + 'clinics-performance-by-state',
+    POLICY_MAKER_INSIGHTS: POLICY_MAKER_API_URL + 'insights',
 
 
 

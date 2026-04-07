@@ -123,7 +123,7 @@ export const useTranslatedConstants = () => {
         DOMAIN_COPIED: t('SUCCESS.DOMAIN_COPIED'),
         DOMAIN_COPY_FAILED: (err) => `${t('ERRORS.DOMAIN_COPY_FAILED')} ${err}`,
         PASSWORD_UPDATED: t('SUCCESS.PASSWORD_UPDATED'),
-        LINK_COPY:'Link Copied Successfully',
+        LINK_COPY: 'Link Copied Successfully',
     };
 
     const REGISTER_TAB = {
@@ -426,3 +426,144 @@ export const PATIENT_APPT_STEPS = [
     { label: "Tests" },
     { label: "Payment" },
 ];
+
+export const stateCoordinates = {
+    andhra_pradesh: [15.9129, 79.7400],
+    arunachal_pradesh: [28.2180, 94.7278],
+    assam: [26.2006, 92.9376],
+    bihar: [25.0961, 85.3131],
+    chhattisgarh: [21.2787, 81.8661],
+    goa: [15.2993, 74.1240],
+    gujarat: [22.2587, 71.1924],
+    haryana: [29.0588, 76.0856],
+    himachal_pradesh: [31.1048, 77.1734],
+    jharkhand: [23.6102, 85.2799],
+    karnataka: [15.3173, 75.7139],
+    kerala: [10.8505, 76.2711],
+    madhya_pradesh: [22.9734, 78.6569],
+    maharashtra: [19.7515, 75.7139],
+    manipur: [24.6637, 93.9063],
+    meghalaya: [25.4670, 91.3662],
+    mizoram: [23.1645, 92.9376],
+    nagaland: [26.1584, 94.5624],
+    odisha: [20.9517, 85.0985],
+    punjab: [31.1471, 75.3412],
+    rajasthan: [27.0238, 74.2179],
+    sikkim: [27.5330, 88.5122],
+    tamil_nadu: [11.1271, 78.6569],
+    telangana: [18.1124, 79.0193],
+    tripura: [23.9408, 91.9882],
+    uttar_pradesh: [26.8467, 80.9462],
+    uttarakhand: [30.0668, 79.0193],
+    west_bengal: [22.9868, 87.8550],
+
+    // ✅ Union Territories
+    andaman_and_nicobar_islands: [11.7401, 92.6586],
+    chandigarh: [30.7333, 76.7794],
+    dadra_and_nagar_haveli_and_daman_and_diu: [20.4283, 72.8397],
+    delhi: [28.7041, 77.1025],
+    jammu_and_kashmir: [33.7782, 76.5762],
+    ladakh: [34.1526, 77.5770],
+    lakshadweep: [10.5667, 72.6417],
+    puducherry: [11.9416, 79.8083]
+};
+
+export const stateAliasMap = {
+    // ✅ Common misspellings
+    gujrat: "gujarat",
+    gujraat: "gujarat",
+    maharastra: "maharashtra",
+    delhi_ncr: "delhi",
+    uttrakhand: "uttarakhand",
+    uttarkhand: "uttarakhand",
+    telengana: "telangana",
+    andhrapradesh: "andhra_pradesh",
+    keral: "kerala",
+    tamilnadu: "tamil_nadu",
+    bengal: "west_bengal",
+    orissa: "odisha",
+    chattisgarh: "chhattisgarh",
+
+    // ✅ Major city → state mappings
+    mumbai: "maharashtra",
+    pune: "maharashtra",
+    nagpur: "maharashtra",
+
+    ahmedabad: "gujarat",
+    surat: "gujarat",
+    vadodara: "gujarat",
+
+    bangalore: "karnataka",
+    bengaluru: "karnataka",
+    mysore: "karnataka",
+
+    chennai: "tamil_nadu",
+    coimbatore: "tamil_nadu",
+    madurai: "tamil_nadu",
+
+    hyderabad: "telangana",
+    warangal: "telangana",
+
+    kolkata: "west_bengal",
+    howrah: "west_bengal",
+
+    jaipur: "rajasthan",
+    udaipur: "rajasthan",
+
+    lucknow: "uttar_pradesh",
+    kanpur: "uttar_pradesh",
+    varanasi: "uttar_pradesh",
+
+    patna: "bihar",
+    gaya: "bihar",
+
+    bhopal: "madhya_pradesh",
+    indore: "madhya_pradesh",
+
+    raipur: "chhattisgarh",
+
+    ranchi: "jharkhand",
+
+    chandigarh_city: "chandigarh",
+
+    shimla: "himachal_pradesh",
+
+    dehradun: "uttarakhand",
+
+    guwahati: "assam",
+
+    imphal: "manipur",
+
+    shillong: "meghalaya",
+
+    aizawl: "mizoram",
+
+    kohima: "nagaland",
+
+    agartala: "tripura",
+
+    gangtok: "sikkim",
+
+    panaji: "goa",
+
+    kochi: "kerala",
+    trivandrum: "kerala",
+    thiruvananthapuram: "kerala",
+
+    // ✅ UT mappings / variations
+    pondicherry: "puducherry",
+    puduchery: "puducherry",
+
+    daman_diu: "dadra_and_nagar_haveli_and_daman_and_diu",
+    dadra_nagar_haveli: "dadra_and_nagar_haveli_and_daman_and_diu",
+
+    andaman: "andaman_and_nicobar_islands",
+    nicobar: "andaman_and_nicobar_islands",
+
+    kashmir: "jammu_and_kashmir",
+    jammu: "jammu_and_kashmir",
+
+    ladakh_region: "ladakh",
+
+    lakshadweep_islands: "lakshadweep"
+};

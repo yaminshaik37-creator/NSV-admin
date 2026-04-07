@@ -3,7 +3,7 @@
 import { ArrowUp, ArrowDown } from "lucide-react";
 import Trends from "@/components/charts/Trends";
 
-export default function MetricCard({ title, value, percentChange, chartData }) {
+export default function UpdatesCard({ title, value, percentChange, chartData }) {
 
     const isPositive = percentChange >= 0;
 
@@ -14,7 +14,7 @@ export default function MetricCard({ title, value, percentChange, chartData }) {
 
                 <div className="text-4xl font-semibold text-green-600"> {value} </div>
 
-                <div className={`flex items-center text-sm mt-2 ${isPositive ? "text-green-500" : "text-red-500"}`}   >
+                {<div className={`flex items-center text-sm mt-2 ${isPositive ? "text-green-500" : "text-red-500"}`}   >
                     {isPositive ? (
                         <ArrowUp size={14} />
                     ) : (
@@ -24,7 +24,7 @@ export default function MetricCard({ title, value, percentChange, chartData }) {
                     <span className="ml-1">
                         {Math.abs(percentChange)}%
                     </span>
-                </div>
+                </div>}
             </div>
 
             {/* Sparkline */}

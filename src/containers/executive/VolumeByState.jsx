@@ -1,58 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import ApiCall from "@/Services/api";
-import { API_ENDPOINTS } from "@/config/api-endpoints";
 
 import CommonBarChart from "@/components/charts/CommonBarChart";
 
-export default function VolumeByState() {
+export default function VolumeByState({ proceduresVolumeByState }) {
 
-    const [data, setData] = useState([]);
-
-    // const fetchVolumeByState = async () => {
-    //     try {
-
-    //         const res = await ApiCall({
-    //             url: API_ENDPOINTS.PROCEDURES_VOLUME_BY_STATE,
-    //             method: "GET"
-    //         });
-
-    //         if (res?.success) {
-
-    //             const cleaned = res.data
-    //                 .filter(item =>
-    //                     item.procedures > 0 &&     // remove zero values
-    //                     item.state &&              // ensure state exists
-    //                     item.state.length > 3      // remove pa, k, t etc
-    //                 )
-    //                 .sort((a, b) => b.procedures - a.procedures) // highest first
-    //                 .slice(0, 5)                                 // show only 5
-    //                 .map(item => ({
-    //                     state: item.state.charAt(0).toUpperCase() + item.state.slice(1),
-    //                     value: Number(item.procedures)
-    //                 }));
-
-    //             setData(cleaned);
-    //         }
-
-    //     } catch (error) {
-    //         console.error("Volume by state API error:", error);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     fetchVolumeByState();
-    // }, []);
-
-    const stateData = [
-        { name: "Guj", value: 60 },
-        { name: "Mah", value: 60 },
-        { name: "Kar", value: 57 },
-        { name: "TN", value: 53 },
-        { name: "Raj", value: 50 },
-        { name: "Del", value: 47 },
-    ];
 
     return (
         <div className="bg-white rounded-[32px] p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex flex-col h-[50%] overflow-hidden">
@@ -84,7 +36,7 @@ export default function VolumeByState() {
             <div className="flex-1 min-h-0">
 
                 <CommonBarChart
-                    data={stateData}
+                    data={proceduresVolumeByState}
                     layout="horizontal"
                     dataKey="value"
                     labelKey="name"

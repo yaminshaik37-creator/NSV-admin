@@ -2,7 +2,7 @@
 
 import { RotateCcw, DollarSign } from "lucide-react";
 
-export default function InsightsCards() {
+export default function InsightsCards({ insights }) {
     return (
         <div className="w-full font-sans">
             {/* Title */}
@@ -17,7 +17,7 @@ export default function InsightsCards() {
                 <div className="bg-white rounded-[24px] p-6 flex justify-between items-start shadow-sm border border-gray-50">
                     <div className="flex flex-col">
                         <p className="text-[14px] text-gray-500 font-medium mb-6">
-                            Regional Coverage Disparity
+                            Regional Coverage Disparity  (TBD)
                         </p>
                         <div className="flex items-baseline gap-1">
                             <span className="text-[32px] font-semibold text-[#E53E3E]">
@@ -25,7 +25,7 @@ export default function InsightsCards() {
                             </span>
                             <span className="text-[14px] font-semibold text-[#E53E3E] mr-2">%</span>
                             <p className="text-[12px] text-gray-400 leading-tight max-w-[100px]">
-                                Coverage disparity in Gujarat
+                                Coverage disparity
                             </p>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ export default function InsightsCards() {
                         </p>
                         <div className="flex items-baseline gap-1">
                             <span className="text-[32px] font-semibold text-[#D69E2E]">
-                                15
+                                {insights?.dataQualityIssues?.overallMissing}
                             </span>
                             <span className="text-[14px] font-semibold text-[#D69E2E] mr-2">%</span>
                             <p className="text-[12px] text-gray-400 leading-tight max-w-[100px]">
@@ -64,7 +64,7 @@ export default function InsightsCards() {
                 <div className="bg-white rounded-[24px] p-6 flex justify-between items-start shadow-sm border border-gray-50">
                     <div className="flex flex-col">
                         <p className="text-[14px] text-gray-500 font-medium mb-6">
-                            Portfolio Imbalance
+                            Portfolio Imbalance  (TBD)
                         </p>
                         <div className="flex items-baseline gap-1">
                             <span className="text-[32px] font-semibold text-[#38A169]">

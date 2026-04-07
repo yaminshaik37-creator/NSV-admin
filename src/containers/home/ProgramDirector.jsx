@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DashboardHeader from "../programdirector/Filter";
 import UpdatesCards from "../programdirector/Updates";
 import InsightsStatusCards from "../programdirector/Insights";
 import GlobalCoverageDashboard from "../programdirector/GlobalCovrageDashboard";
+import ApiCall from "@/Services/api";
+import { API_ENDPOINTS } from "@/config/api-endpoints";
 
 export default function ProgramDirector() {
 
@@ -13,10 +15,27 @@ export default function ProgramDirector() {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
 
+    const [clinics, setClinic] = useState([]);
+
+    useEffect(() => {
+        fetchClinics();
+    }, []);
+
+    const fetchClinics = async () => {
+        try {
+            const res = await ApiCall({ url: API_ENDPOINTS.CLINIC_MASTER, body: {}, method: "POST" });
+            if (res?.success) {
+                setClinic(res.data)
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <div>
 
-            <DashboardHeader
+            <DashboardHeader clinics={clinics}
                 clinic_id={clinic_id}
                 setClinicId={setClinicId}
                 range={range}
@@ -41,7 +60,7 @@ export default function ProgramDirector() {
                 endDate={endDate}
             />
 
-            <GlobalCoverageDashboard/>
+            <GlobalCoverageDashboard />
 
         </div>
     );

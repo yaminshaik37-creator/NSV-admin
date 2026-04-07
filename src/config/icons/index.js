@@ -8,7 +8,6 @@ import DoctorIcon from "@/images/icons/DoctorIcon"
 import TestTubeIcon from "@/images/icons/TestTubeIcon"
 import ReportsIcon from "@/images/icons/ReportsIcon"
 import PaymentIcon from "@/images/icons/PaymentIcon"
-import AnalyticsIcon from "@/images/icons/AnalyticsIcon"
 import StaffIcon from "@/images/icons/StaffIcon"
 import HolidayCalendarIcon from "@/images/icons/HolidayCalendarIcon"
 import ResourceIcon from "@/images/icons/ResourcesIcon"
@@ -28,4 +27,4 @@ import TimeBasedDiscountIcon from "@/images/icons/TimeBasedDiscountIcon";
 import ConfirmationIcon from "@/images/icons/ConfirmationIcon";
 import WarningIcon from "@/images/icons/WarningIcon";
 
-export { Logo, EyeOpen, EyeClosed, Logout, DashboardIcon, Delete, DashboardLogo, Profile, ActivityLog, Cross, Setting, Add, PencilEdit, PatientIcon, DoctorIcon, TestTubeIcon, ReportsIcon, PaymentIcon, AnalyticsIcon, StaffIcon, HolidayCalendarIcon, SettingsIcon, AppointmentIcon, ManageCenterIcon, BillingIcon, ResourceIcon, TimeBasedDiscountIcon, ConfirmationIcon, WarningIcon };
+export { Logo, EyeOpen, EyeClosed, Logout, DashboardIcon, Delete, DashboardLogo, Profile, ActivityLog, Cross, Setting, Add, PencilEdit, PatientIcon, DoctorIcon, TestTubeIcon, ReportsIcon, PaymentIcon, StaffIcon, HolidayCalendarIcon, SettingsIcon, AppointmentIcon, ManageCenterIcon, BillingIcon, ResourceIcon, TimeBasedDiscountIcon, ConfirmationIcon, WarningIcon };

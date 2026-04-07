@@ -6,21 +6,21 @@ export default function InsightsStatusCards() {
 
     const cards = [
         {
-            title: "Utilization Gap Status",
+            title: "Utilization Gap Status (TBD)",
             value: "19%",
             desc: "Of registered devices inactive",
             color: "text-red-500",
             icon: RotateCcw
         },
         {
-            title: "Concentration Risk Status",
+            title: "Concentration Risk Status (TBD)",
             value: "65%",
             desc: "Operations in Maharashtra",
             color: "text-orange-500",
             icon: CircleDot
         },
         {
-            title: "Budget Utilization Status",
+            title: "Budget Utilization Status (TBD)",
             value: "45%",
             desc: "Budget utilized",
             color: "text-green-600",
@@ -33,7 +33,7 @@ export default function InsightsStatusCards() {
 
             {/* Title */}
             <h2 className="text-[22px] font-semibold text-gray-600 mb-6">
-                Insights
+                Insights (TBD)
             </h2>
 
             {/* Cards */}

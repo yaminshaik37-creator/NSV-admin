@@ -1,41 +1,22 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
-import ApiCall from "@/Services/api";
-import { API_ENDPOINTS } from "@/config/api-endpoints";
+import { useMemo, useState, } from "react";
 import { Maximize2 } from "lucide-react";
 import CustomBarChart from "@/components/charts/CustomBarChart";
+import { getYAxisTicks } from "@/utils/helper";
 
-export default function ProceduresOverTime({ state }) {
-    const [rawData, setRawData] = useState([]);
+const bars = [
+    { key: "nGyn", color: "#0A1D47" },
+    { key: "nOra", color: "#1D4ED8" },
+    { key: "nOrtho", color: "#93C5FD" },
+];
+
+export default function ProceduresOverTime({ proceduresOverTime }) {
     const [range, setRange] = useState("monthly");
 
-    // const fetchChartData = async () => {
-    //     const res = await ApiCall({
-    //         url: `${API_ENDPOINTS.EXECUTIVE_PROCEDURES_OVER_TIME}?range=${range}${state ? `&state=${state}` : ""}`,
-    //         method: "GET"
-    //     });
-    //     if (res?.success) setRawData(res.data);
-    // };
 
-    // useEffect(() => { fetchChartData(); }, [range, state]);
 
-    const bars = [
-        { key: "nGyn", color: "#0A1D47" },
-        { key: "nOra", color: "#1D4ED8" },
-        { key: "nOrtho", color: "#93C5FD" },
-    ];
-
-    const yAxisTicks = [0, 2000, 4000, 6000, 8000, 10000];
-    const dailyData = [
-        { day: "Mon", nGyn: 3200, nOra: 2100, nOrtho: 1800 },
-        { day: "Tue", nGyn: 4500, nOra: 2800, nOrtho: 2200 },
-        { day: "Wed", nGyn: 3800, nOra: 2600, nOrtho: 2000 },
-        { day: "Thu", nGyn: 5200, nOra: 3100, nOrtho: 2700 },
-        { day: "Fri", nGyn: 6100, nOra: 3500, nOrtho: 3000 },
-        { day: "Sat", nGyn: 4800, nOra: 2900, nOrtho: 2500 },
-        { day: "Sun", nGyn: 3000, nOra: 2000, nOrtho: 1500 },
-    ];
+    const yAxisTicks = useMemo(() => getYAxisTicks(proceduresOverTime), [proceduresOverTime]);
 
     return (
         <div className="bg-white rounded-[32px] p-6 shadow-sm h-[300px] flex flex-col w-full border border-gray-50 relative">
@@ -85,8 +66,8 @@ export default function ProceduresOverTime({ state }) {
             {/* Chart Area */}
             <div className="flex-1 w-full">
                 <CustomBarChart
-                    data={dailyData}
-                    range="daily"
+                    data={proceduresOverTime}
+                    range="monthly"
                     bars={bars}
                     yAxisTicks={yAxisTicks}
                 />

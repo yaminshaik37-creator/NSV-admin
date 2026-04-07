@@ -1,17 +1,16 @@
 "use client";
 
 import DeviceCard from "./ProcedureOverTime";
-import ProceduresOverTime from "./GlobalCoverage";
+// import ProceduresOverTime from "./GlobalCoverage";
 import VolumeByState from "./InfrastructureChart";
-import GlobalCoverageMap from "./GlobalCoverage";
+// import GlobalCoverageMap from "./GlobalCoverage";
 
-/* ---------------- LEFT: Procedures Over Time (AREA CHART) ---------------- */
+import dynamic from "next/dynamic";
 
-
-/* ---------------- RIGHT TOP: Device Card with Top Tabs ---------------- */
-
-
-/* ---------------- RIGHT BOTTOM: Volume by State ---------------- */
+const GlobalCoverageMap = dynamic(
+    () => import("./GlobalCoverage"),
+    { ssr: false }
+);
 
 
 /* ---------------- MAIN DASHBOARD ---------------- */
