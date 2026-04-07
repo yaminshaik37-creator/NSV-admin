@@ -23,10 +23,11 @@ const NsvNetwork = () => {
     const [insights, setInsights] = useState([]);
     const [networkKpis, setNetworkKpis] = useState([]);
 
+    // const { iid, state, clinic_id, range, startDate, endDate } = query;
 
     useEffect(() => {
         fetchInstitute();
-    }, []);
+    }, [range]);
 
     const fetchInstitute = async () => {
         try {
@@ -42,7 +43,8 @@ const NsvNetwork = () => {
 
     const fetchInsights = async () => {
         try {
-            const res = await ApiCall({ url: API_ENDPOINTS.UNDERPERFORMING_CENTER, method: "POST", body: {} });
+            const payload = { range };
+            const res = await ApiCall({ url: API_ENDPOINTS.UNDERPERFORMING_CENTER, method: "POST", body: payload });
             if (res?.success) {
                 setInsights(res?.data);
             }
@@ -53,7 +55,9 @@ const NsvNetwork = () => {
     };
     const fetchNetworkKpis = async () => {
         try {
-            const res = await ApiCall({ url: API_ENDPOINTS.NETWORK_KPIS, method: "POST", body: {} });
+            const payload = { range };
+
+            const res = await ApiCall({ url: API_ENDPOINTS.NETWORK_KPIS, method: "POST", body: payload });
             if (res?.success) {
                 setNetworkKpis(res?.data);
             }

@@ -19,7 +19,7 @@ export default function QualityMetrics({ qualityMetrics_ngyn, qualityMetrics_nca
         <div className="bg-gray-100 p-10">
 
             <h2 className="text-lg font-semibold mb-6 text-gray-700">
-                Quality Metrics - Click Any Metric to View Chart
+                Quality Metrics
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -29,29 +29,30 @@ export default function QualityMetrics({ qualityMetrics_ngyn, qualityMetrics_nca
 
                     <h3 className="font-semibold mb-4 text-gray-700">• nGyn Metrics</h3>
 
-                    <Metric labelColor="text-red-600" label="Average Image Quality score" value={'8.7/10'} color="text-green-600" />
+                    <Metric label="Average Image Quality score" value={qualityMetrics_ngyn?.avg_image_quality_res?.avg_image_quality_score} color="text-green-600" />
 
                     <Metric label="Procedure Completion" value={`${convert2Decimal(qualityMetrics_ngyn?.procedure_completion_res?.completion_rate)}%`} color="text-green-600" />
 
                     <Metric label="Swede Score Distribution" value={`${convert2Decimal(qualityMetrics_ngyn?.swide_score_distribution_res?.round)}  avg`} />
 
-                    <Metric labelColor="text-red-600" label="High-Grade Detection" value={`${convert2Decimal(qualityMetrics_ngyn?.hide_grade_detection_res?.completion_rate)}%`} />
+                    <Metric label="High-Grade Detection" value={`${convert2Decimal(qualityMetrics_ngyn?.hide_grade_detection_res?.high_grade_percentage)}%`} />
 
                     <div className="h-[200px] my-5">
                         <CommonBarChart data={DATA} layout="vertical" dataKey="value" labelKey="range" />
                     </div>
+                    <p className="font-semibold  text-center"> Swede Score Distribution</p>
                 </div>
 
                 {/* nOra */}
                 <div className="bg-white rounded-2xl shadow p-6">
 
-                    <h3 className="font-semibold mb-4 text-red-600">
+                    <h3 className="font-semibold mb-4 ">
                         • nOra Quality Metrics
                     </h3>
 
-                    <Metric label="Complete Capture" value={`91.5%`} color="text-green-600" />
-
-                    <Metric label="High-Risk Detection" value={`96.8%`} color="text-red-600" />
+                    <Metric label="Procedure Completion rate" value={`-`} color="text-green-600" />
+                    <Metric label="Risk Level Distribution" value={`-`} />
+                    <Metric label="High Risk Percentage Logic" value={`-`} />
 
                     <div className="h-[200px] my-5">
                         <DonutChart data={[
@@ -68,21 +69,21 @@ export default function QualityMetrics({ qualityMetrics_ngyn, qualityMetrics_nca
                         ]} colors={["#9EC3DB", "#6EC1E4", "#3BA3D0", "#1F7FB6"]} />
 
                     </div>
+                    <p className="font-semibold  text-center mt-10"> Signal Quality Distribution</p>
 
                 </div>
 
                 {/* nCardio */}
                 <div className="bg-white rounded-2xl shadow p-6">
 
-                    <h3 className="font-semibold mb-4 text-red-600">   • nCardio Quality Metrics  </h3>
+                    <h3 className="font-semibold mb-4 ">   • nCardio Quality Metrics  </h3>
 
-                    <Metric label="Average Image Quality score" value={'8.7/10'} color="text-green-600" />
+                    <Metric label="Procedure Completion rate" value={'-'} color="text-green-600" />
 
-                    <Metric label="Procedure Completion" value={'94.2%'} color="text-green-600" />
+                    <Metric label="Recording Duration" value={'-'} color="text-green-600" />
 
-                    <Metric label="Acetic Acid Quality" value={`4.8 avg`} />
+                    <Metric label="Abnormality Rate" value={`-`} />
 
-                    <Metric label="High-Grade Detection" value={`18.3%`} />
 
                     <div className="h-[200px] my-5">
                         <DonutChart data={[
@@ -97,6 +98,7 @@ export default function QualityMetrics({ qualityMetrics_ngyn, qualityMetrics_nca
                         ]} colors={["#9EC3DB", "#6EC1E4", "#3BA3D0",]} />
 
                     </div>
+                    <p className="font-semibold  text-center mt-10"> Risk Level Distribution</p>
 
                 </div>
 
